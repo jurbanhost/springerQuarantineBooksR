@@ -13,7 +13,7 @@ download_springer_book <- function(book_spec_title, springer_table){
   en_book_type <- aux$english_package_name
 
   download_url <- aux$open_url %>%
-    GET(httr::timeout(60000)) %>%
+    GET(timeout(60000)) %>%
     extract2('url') %>%
     str_replace('book', paste0('content', file_sep, 'pdf')) %>%
     str_replace('%2F', file_sep) %>%
@@ -21,7 +21,7 @@ download_springer_book <- function(book_spec_title, springer_table){
 
   Sys.sleep(1)
 
-  pdf_file = GET(download_url, httr::timeout(60000))
+  pdf_file = GET(download_url, timeout(60000))
 
   clean_book_title <- str_replace(book_spec_title, '/', '-') # Avoiding '/' special character in filename
 
