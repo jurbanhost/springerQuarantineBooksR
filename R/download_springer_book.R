@@ -26,5 +26,5 @@ download_springer_book <- function(book_spec_title, springer_table){
   write.filename = file(paste0(clean_book_title, " - ", edition, ".pdf"), "wb")
   writeBin(pdf_file$content, write.filename)
   close(write.filename)
-  Sys.sleep(3)
+  Sys.sleep(10)
 }
