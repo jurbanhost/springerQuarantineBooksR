@@ -19,7 +19,7 @@ download_springer_book <- function(book_spec_title, springer_table){
     str_replace('%2F', file_sep) %>%
     paste0('.pdf')
 
-  pdf_file = GET(download_url)
+  pdf_file = GET(download_url, timeout(60000))
 
   clean_book_title <- str_replace(book_spec_title, '/', '-') # Avoiding '/' special character in filename
 
