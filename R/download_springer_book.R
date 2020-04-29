@@ -23,7 +23,7 @@ download_springer_book <- function(book_spec_title, springer_table){
 
   clean_book_title <- str_replace(book_spec_title, '/', '-') # Avoiding '/' special character in filename
 
-  if (!file.exist(paste0(clean_book_title, " - ", edition, ".pdf"))) {
+  if (!file.exists(paste0(clean_book_title, " - ", edition, ".pdf"))) {
     pdf_file = GET(download_url, timeout(60000), use_proxy("5.101.82.186", 8000, username = "yPewBQ", password = "egx5Ko"))
     write.filename = file(paste0(clean_book_title, " - ", edition, ".pdf"), "wb")
     writeBin(pdf_file$content, write.filename)
